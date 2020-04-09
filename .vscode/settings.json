@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "*.js": "javascriptreact"
+  },
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "peacock.color": "#61dafb",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#61dafb",
+    "titleBar.inactiveBackground": "#61dafb99",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#15202b99",
+    "tab.activeBorder": "#93e6fc"
+  },
+}
