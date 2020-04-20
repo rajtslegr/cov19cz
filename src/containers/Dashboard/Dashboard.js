@@ -3,9 +3,10 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import Cards from '../Cards/Cards';
-import Charts from '../Charts/Charts';
+import HorizontalCharts from '../HorizontalCharts/HorizontalCharts';
 import Loader from '../../components/UI/Loader/Loader';
-import Pies from '../Pies/Pies';
+import Pies from '../PieCharts/PieCharts';
+import VerticalCharts from '../VerticalCharts/VerticalCharts';
 
 const DashboardContainer = styled.div`
   width: 95%;
@@ -14,56 +15,46 @@ const DashboardContainer = styled.div`
 
 const Dashboard = () => {
   const [data, setData] = useState({
-    czechia: [],
-    infection: [],
-    tests: [],
-    persons: [],
+    covData: [],
     loading: true,
     error: false,
   });
 
   useEffect(() => {
+    const loadData = async () => {
+      if (data.loading) {
+        await axios
+          .get(
+            'https://api.apify.com/v2/key-value-stores/K373S4uCFR9W1K8ei/records/LATEST?disableRedirect=true',
+          )
+          .then((response) => {
+            setData({
+              ...data,
+              covData: response.data,
+              loading: false,
+            });
+          })
+          .catch((_error) => {
+            setData({
+              ...data,
+              loading: false,
+              error: true,
+            });
+          });
+      }
+    };
+
     loadData();
   });
-
-  const loadData = () => {
-    if (data.loading) {
-      const mzcr = 'https://onemocneni-aktualne.mzcr.cz/api/v1/covid-19/';
-      const requestCzechia = axios.get(
-        'https://coronavirus-19-api.herokuapp.com/countries/czechia',
-      );
-      const requestInfection = axios.get(mzcr + 'nakaza.json');
-      const requestTests = axios.get(mzcr + 'testy.json');
-      const requestPersons = axios.get(mzcr + 'osoby.json');
-
-      Promise.all([requestCzechia, requestInfection, requestTests, requestPersons])
-        .then((...responses) => {
-          setData({
-            ...data,
-            czechia: responses[0][0].data,
-            infection: responses[0][1].data,
-            tests: responses[0][2].data.data,
-            persons: responses[0][3].data,
-            loading: false,
-          });
-        })
-        .catch((_errors) => {
-          setData({
-            ...data,
-            loading: false,
-            error: true,
-          });
-        });
-    }
-  };
 
   let dashboardOutput = <Loader />;
   if (!data.loading) {
     dashboardOutput = (
       <DashboardContainer>
-        <Cards data={data.czechia} />
-        <Charts data={data} />
-        <Pies data={data.persons} />
+        <Cards data={data.covData} />
+        <HorizontalCharts data={data.covData} />
+        <VerticalCharts data={data.covData} />
+        <Pies data={data.covData} />
       </DashboardContainer>
     );
   }

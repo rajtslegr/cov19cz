@@ -5,6 +5,7 @@
       "name": "Chrome",
       "type": "chrome",
       "preLaunchTask": "npm: start",
+      "postDebugTask": "postDebugKill",
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
