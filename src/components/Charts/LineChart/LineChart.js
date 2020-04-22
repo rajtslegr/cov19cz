@@ -11,9 +11,18 @@ import {
 } from 'recharts';
 
 const ChartContainer = styled.div`
-  padding: 0 0 40px 0;
-  width: 100%;
-  height: 32vh;
+  background-color: white;
+  box-sizing: border-box;
+  height: 38vh;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+  @media (max-width: 599px) {
+    margin: 8px 0;
+    padding: 8px 0;
+  }
 `;
 
 const Title = styled.div`
@@ -42,26 +51,56 @@ const Chart = (props) => {
         }}
       />
     );
+  } else if (props.type === 'hospitalization') {
+    tooltip = <Tooltip />;
   }
+
   const dataOutput = props.data.filter((day) => day.data > 0);
-  return (
-    <ChartContainer>
-      <Title>{props.children}</Title>
-      <ResponsiveContainer width="100%">
+  let chartOutput = (
+    <ResponsiveContainer width="100%" height="85%">
+      <LineChart
+        data={dataOutput}
+        margin={{
+          top: 20,
+          right: 10,
+          left: 8,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="key" interval={31} />
+        <YAxis />
+        {tooltip}
+        <Line dataKey="data" type="monotone" stroke={props.color} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+
+  if (props.type === 'hospitalization') {
+    chartOutput = (
+      <ResponsiveContainer width="100%" height="85%">
         <LineChart
-          data={dataOutput}
+          data={props.data}
           margin={{
             top: 20,
-            bottom: 20,
+            right: 10,
+            left: 8,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="key" interval={31} />
           <YAxis />
           {tooltip}
-          <Line dataKey="data" type="monotone" stroke={props.color} />
+          <Line dataKey="Hospitalizováno" type="monotone" stroke="#ffc658" />
+          <Line dataKey="Kritckých pacientů" type="monotone" stroke="#ff8042" />
         </LineChart>
       </ResponsiveContainer>
+    );
+  }
+
+  return (
+    <ChartContainer>
+      <Title>{props.children}</Title>
+      {chartOutput}
     </ChartContainer>
   );
 };

@@ -3,12 +3,19 @@ import styled from 'styled-components';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const ChartContainer = styled.div`
-  padding: 0 0 40px 0;
+  background-color: white;
   width: 50%;
-  height: 50vh;
+  box-sizing: border-box;
+  height: 72vh;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   @media (max-width: 599px) {
     width: 100%;
+    margin: 8px 0;
+    padding: 8px 0;
   }
 `;
 
@@ -26,7 +33,15 @@ const Chart = (props) => {
 
   if (props.type === 'ageGender') {
     bars = (
-      <BarChart data={props.data} layout="vertical">
+      <BarChart
+        data={props.data}
+        layout="vertical"
+        margin={{
+          top: 20,
+          right: 10,
+          left: 8,
+        }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis type="number" />
         <YAxis type="category" dataKey="name" />
@@ -37,16 +52,23 @@ const Chart = (props) => {
     );
   } else {
     bars = (
-      <BarChart data={props.data} layout="vertical">
+      <BarChart
+        data={props.data}
+        layout="vertical"
+        margin={{
+          top: 20,
+          right: 10,
+        }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis type="number" />
-        <YAxis type="category" dataKey="name" tick={{ fontSize: 7 }} />
+        <YAxis type="category" dataKey="name" tick={{ fontSize: 7 }} interval={0} />
         <Tooltip
           formatter={(value) => {
             return [`Počet: ${value}`];
           }}
         />
-        <Bar dataKey="value" fill="#d24040" />
+        <Bar dataKey="value" fill={props.color} />
       </BarChart>
     );
   }
@@ -54,7 +76,9 @@ const Chart = (props) => {
   return (
     <ChartContainer>
       <Title>{props.children}</Title>
-      <ResponsiveContainer width="100%">{bars}</ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="92%">
+        {bars}
+      </ResponsiveContainer>
     </ChartContainer>
   );
 };

@@ -12,9 +12,18 @@ import {
 } from 'recharts';
 
 const ChartContainer = styled.div`
-  padding: 0 0 40px 0;
-  width: 100%;
-  height: 32vh;
+  background-color: white;
+  box-sizing: border-box;
+  height: 48vh;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+  @media (max-width: 599px) {
+    margin: 8px 0;
+    padding: 8px 0;
+  }
 `;
 
 const Title = styled.div`
@@ -30,12 +39,13 @@ const Chart = (props) => {
   return (
     <ChartContainer>
       <Title>{props.children}</Title>
-      <ResponsiveContainer width="100%">
+      <ResponsiveContainer width="100%" height="85%">
         <BarChart
           data={props.data}
           margin={{
             top: 20,
-            bottom: 20,
+            right: 10,
+            left: 8,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

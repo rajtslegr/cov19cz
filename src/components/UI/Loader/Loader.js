@@ -5,7 +5,7 @@ const StyledLoader = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40vh;
+  margin-top: 25vh;
   width: 80px;
   height: 80px;
   transform: rotate(45deg);
@@ -17,7 +17,7 @@ const StyledLoader = styled.div`
     position: absolute;
     width: 32px;
     height: 32px;
-    background: #8a0303;
+    background: #d24040;
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   div:after,
@@ -27,7 +27,7 @@ const StyledLoader = styled.div`
     display: block;
     width: 32px;
     height: 32px;
-    background: #8a0303;
+    background: #d24040;
   }
 
   div:before {
@@ -64,7 +64,7 @@ const StyledLoader = styled.div`
 const Loader = () => {
   return (
     <StyledLoader>
-      <div></div>
+      <div />
     </StyledLoader>
   );
 };

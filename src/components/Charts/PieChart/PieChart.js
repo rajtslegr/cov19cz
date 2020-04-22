@@ -4,12 +4,19 @@ import styled from 'styled-components';
 import { PieChart, Pie, Legend, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 
 const PieContainer = styled.div`
-  padding: 0 0 40px 0;
+  background-color: white;
+  box-sizing: border-box;
   width: 50%;
-  height: 32vh;
+  height: 42vh;
+  padding: 8px;
+  margin: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   @media (max-width: 599px) {
     width: 100%;
+    margin: 8px 0;
+    padding: 8px 0;
   }
 `;
 
@@ -44,9 +51,13 @@ const Chart = (props) => {
   return (
     <PieContainer>
       <Title>{props.children}</Title>
-      <ResponsiveContainer width="100%" height="100%">
-        {/* <PieChart data={props.data} /> */}
-        <PieChart>
+      <ResponsiveContainer width="100%" height="85%">
+        <PieChart
+          margin={{
+            top: 20,
+            left: 20,
+          }}
+        >
           <Pie data={props.data} dataKey="data" nameKey="key" label>
             {props.data.map((_entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />

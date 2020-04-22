@@ -9,8 +9,16 @@ import Pies from '../PieCharts/PieCharts';
 import VerticalCharts from '../VerticalCharts/VerticalCharts';
 
 const DashboardContainer = styled.div`
-  width: 95%;
-  margin: 10px auto;
+  width: 75%;
+  padding: 12px;
+  margin: 12px auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+
+  @media (max-width: 1079px) {
+    width: 95%;
+  }
 `;
 
 const Dashboard = () => {
@@ -53,8 +61,8 @@ const Dashboard = () => {
       <DashboardContainer>
         <Cards data={data.covData} />
         <HorizontalCharts data={data.covData} />
-        <VerticalCharts data={data.covData} />
         <Pies data={data.covData} />
+        <VerticalCharts data={data.covData} />
       </DashboardContainer>
     );
   }

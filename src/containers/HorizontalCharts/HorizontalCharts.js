@@ -41,6 +41,7 @@ const HorizontalCharts = (props) => {
   const infectedCum = prepareChartData(props.data.totalPositiveTests);
   const testedCum = prepareChartData(props.data.numberOfTestedGraph);
   const positivePercent = [];
+  let hospitalizationData = [];
 
   testedDaily.map((testDay) => {
     const getDay = infectedDaily.find((infDay) => infDay.key === testDay.key);
@@ -50,23 +51,37 @@ const HorizontalCharts = (props) => {
     });
   });
 
+  props.data.hospitalizationData.slice(1).map((day) => {
+    return (hospitalizationData = [
+      {
+        key: helpers.formatDate(day[0]),
+        Hospitalizováno: day[1],
+        'Kritckých pacientů': day[2],
+      },
+      ...hospitalizationData,
+    ]);
+  });
+
   return (
     <Aux>
       <ChartsContainer>
         <BarChart data={infectedDaily} color="#d24040">
-          Přírůstek nakažených za daný den
+          Denní přírůstek pozitivně testovaných
         </BarChart>
         <BarChart data={testedDaily} color="#8884d8">
-          Přírůstek otestovaných za daný den
+          Denní přírůstek provedených testů
         </BarChart>
         <LineChart data={infectedCum} color="#d24040">
-          Kumulativní počet nakažených
+          Kumulativní počet pozitivně testovaných
         </LineChart>
         <LineChart data={testedCum} color="#8884d8">
-          Kumulativní počet otestovaných
+          Kumulativní počet provedených testů
         </LineChart>
-        <LineChart data={positivePercent} color="black" type="percent">
-          Procentuální poměr pozitivních a provedených testů
+        <LineChart data={positivePercent} color="#000000" type="percent">
+          Denní procentuální poměr pozitivně testovaných a provedených testů
+        </LineChart>
+        <LineChart data={hospitalizationData} type="hospitalization">
+          Denní počet hospitalizovaných a kriticky nakažených pacientů
         </LineChart>
       </ChartsContainer>
     </Aux>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
-import Pie from '../../components/Charts/PieCharts/Pie';
+import Pie from '../../components/Charts/PieChart/PieChart';
 
 const PiesContainer = styled.div`
   width: 100%;
@@ -47,8 +47,8 @@ const Pies = (props) => {
   return (
     <Aux>
       <PiesContainer>
-        <Pie data={genderData}>Pohlaví nakažených</Pie>
-        <Pie data={ageData}>Věk nakažených</Pie>
+        <Pie data={genderData}>Pohlaví pozitivně testovaných</Pie>
+        <Pie data={ageData}>Věk pozitivně testovaných</Pie>
       </PiesContainer>
     </Aux>
   );

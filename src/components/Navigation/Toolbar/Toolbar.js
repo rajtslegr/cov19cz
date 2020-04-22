@@ -32,15 +32,6 @@ const Toolbar = () => {
           </span>
           cov19cz
         </Title>
-        <p>
-          <a href="https://rajtslegr.com" target="_blank" rel="noopener noreferrer">
-            rajtslegr.com
-          </a>
-          ,&nbsp;
-          <a href="https://github.com/petrpatek/covid-cz" target="_blank" rel="noopener noreferrer">
-            Data Source
-          </a>
-        </p>
       </Header>
     </Headroom>
   );
