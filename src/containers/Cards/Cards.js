@@ -23,7 +23,7 @@ const Cards = (props) => {
     <Aux>
       <CardsContainer>
         <Card data={props.data.infected} color="#d24040">
-          Pozitvně testovaných
+          Pozitivně testovaných
         </Card>
         <Card data={props.data.totalTested} color="#8884d8">
           Provedených testů
