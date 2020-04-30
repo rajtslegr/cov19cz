@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Aux from '../../hoc/Auxiliary/Auxiliary';
 import helpers from '../../helpers/Helpers';
 
 import BarChart from '../../components/Charts/BarCharts/HorizontalBarChart/HorizontalBarChart';
@@ -18,7 +17,7 @@ const HorizontalCharts = (props) => {
   const prepareChartData = (data, reCalcCum = false) => {
     const dataOutput = [];
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i += 1) {
       let value = 0;
 
       if (i > 0 && reCalcCum === true) {
@@ -56,35 +55,33 @@ const HorizontalCharts = (props) => {
       {
         key: helpers.formatDate(day[0]),
         Hospitalizováno: day[1],
-        'Kritckých pacientů': day[2],
+        'Kritických pacientů': day[2],
       },
       ...hospitalizationData,
     ]);
   });
 
   return (
-    <Aux>
-      <ChartsContainer>
-        <BarChart data={infectedDaily} color="#d24040">
-          Denní přírůstek pozitivně testovaných
-        </BarChart>
-        <BarChart data={testedDaily} color="#8884d8">
-          Denní přírůstek provedených testů
-        </BarChart>
-        <LineChart data={infectedCum} color="#d24040">
-          Kumulativní počet pozitivně testovaných
-        </LineChart>
-        <LineChart data={testedCum} color="#8884d8">
-          Kumulativní počet provedených testů
-        </LineChart>
-        <LineChart data={positivePercent} color="#000000" type="percent">
-          Denní procentuální poměr pozitivně testovaných a provedených testů
-        </LineChart>
-        <LineChart data={hospitalizationData} type="hospitalization">
-          Denní počet hospitalizovaných a kriticky nakažených pacientů
-        </LineChart>
-      </ChartsContainer>
-    </Aux>
+    <ChartsContainer>
+      <BarChart data={infectedDaily} color="#d24040">
+        Denní přírůstek pozitivně testovaných
+      </BarChart>
+      <BarChart data={testedDaily} color="#8884d8">
+        Denní přírůstek provedených testů
+      </BarChart>
+      <LineChart data={infectedCum} color="#d24040">
+        Kumulativní počet pozitivně testovaných
+      </LineChart>
+      <LineChart data={testedCum} color="#8884d8">
+        Kumulativní počet provedených testů
+      </LineChart>
+      <LineChart data={positivePercent} color="#000000" type="percent">
+        Denní procentuální poměr pozitivně testovaných a provedených testů
+      </LineChart>
+      <LineChart data={hospitalizationData} type="hospitalization">
+        Denní počet hospitalizovaných a kriticky nakažených pacientů
+      </LineChart>
+    </ChartsContainer>
   );
 };
 

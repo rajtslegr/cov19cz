@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Chart from '../../components/Charts/BarCharts/VerticaBarChart/VerticalBarChart';
 
 const ChartsContainer = styled.div`
@@ -34,7 +33,7 @@ const VerticalCharts = (props) => {
   });
 
   return (
-    <Aux>
+    <>
       <ChartsContainer>
         <Chart data={infectedAgeGender} type="ageGender">
           Věk pozitivně testovaných podle pohlaví
@@ -51,7 +50,7 @@ const VerticalCharts = (props) => {
           Úmrtí podle regionu
         </Chart>
       </ChartsContainer>
-    </Aux>
+    </>
   );
 };
 

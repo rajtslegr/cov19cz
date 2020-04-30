@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Card from '../../components/Card/Card';
 import helpers from '../../helpers/Helpers';
 
@@ -20,7 +19,7 @@ const Cards = (props) => {
   const lastUpdated = helpers.formatDateTime(props.data.lastUpdatedAtSource);
 
   return (
-    <Aux>
+    <>
       <CardsContainer>
         <Card data={props.data.infected} color="#d24040">
           Pozitivně testovaných
@@ -43,7 +42,7 @@ const Cards = (props) => {
           Poslední aktualizace
         </Card>
       </CardsContainer>
-    </Aux>
+    </>
   );
 };
 

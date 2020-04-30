@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Pie from '../../components/Charts/PieChart/PieChart';
 
 const PiesContainer = styled.div`
@@ -45,12 +44,10 @@ const Pies = (props) => {
   );
 
   return (
-    <Aux>
-      <PiesContainer>
-        <Pie data={genderData}>Pohlaví pozitivně testovaných</Pie>
-        <Pie data={ageData}>Věk pozitivně testovaných</Pie>
-      </PiesContainer>
-    </Aux>
+    <PiesContainer>
+      <Pie data={genderData}>Pohlaví pozitivně testovaných</Pie>
+      <Pie data={ageData}>Věk pozitivně testovaných</Pie>
+    </PiesContainer>
   );
 };
 

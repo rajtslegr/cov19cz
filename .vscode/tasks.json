@@ -22,9 +22,89 @@
       }
     },
     {
-      "label": "postDebugKill",
+      "label": "npm stop",
       "type": "process",
       "command": ["${command:workbench.action.tasks.terminate}"]
+    },
+    {
+      "label": "Open in Firefox",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "Firefox",
+      "windows": {
+        "command": "C:/Program Files/Mozilla Firefox/firefox.exe"
+      },
+      "args": ["http://localhost:3000"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "Open in Opera",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "Opera",
+      "windows": {
+        "command": "C:/Users/petrr/AppData/Local/Programs/Opera/launcher.exe"
+      },
+      "args": ["http://localhost:3000"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "Open in Edge",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "Edge",
+      "windows": {
+        "command": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+      },
+      "args": ["http://localhost:3000"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "Open in IE",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "IE",
+      "windows": {
+        "command": "C:/Program Files/Internet Explorer/iexplore.exe"
+      },
+      "args": ["http://localhost:3000"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
     }
   ]
 }
