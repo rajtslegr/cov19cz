@@ -10,8 +10,12 @@
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
       "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/*"
+        "/mnt/c/*": "/__vscode-remote-uri__/mnt/c/*"
       }
+      // For Windows use:
+      // "sourceMapPathOverrides": {
+      //   "webpack:///src/*": "${webRoot}/*"
+      // }
     }
   ]
 }

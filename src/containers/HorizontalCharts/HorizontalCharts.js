@@ -40,7 +40,7 @@ const HorizontalCharts = (props) => {
   const infectedCum = prepareChartData(props.data.totalPositiveTests);
   const testedCum = prepareChartData(props.data.numberOfTestedGraph);
   const positivePercent = [];
-  let hospitalizationData = [];
+  const hospitalizationData = [];
 
   testedDaily.map((testDay) => {
     const getDay = infectedDaily.find((infDay) => infDay.key === testDay.key);
@@ -51,14 +51,11 @@ const HorizontalCharts = (props) => {
   });
 
   props.data.hospitalizationData.slice(1).map((day) => {
-    return (hospitalizationData = [
-      {
-        key: helpers.formatDate(day[0]),
-        Hospitalizováno: day[1],
-        'Kritických pacientů': day[2],
-      },
-      ...hospitalizationData,
-    ]);
+    return hospitalizationData.push({
+      key: helpers.formatDate(day[0]),
+      Hospitalizováno: day[1],
+      'Kritických pacientů': day[2],
+    });
   });
 
   return (

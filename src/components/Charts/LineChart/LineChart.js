@@ -91,7 +91,7 @@ const Chart = (props) => {
           <YAxis />
           {tooltip}
           <Line dataKey="Hospitalizováno" type="monotone" stroke="#ffc658" />
-          <Line dataKey="Kritckých pacientů" type="monotone" stroke="#ff8042" />
+          <Line dataKey="Kritických pacientů" type="monotone" stroke="#ff8042" />
         </LineChart>
       </ResponsiveContainer>
     );
