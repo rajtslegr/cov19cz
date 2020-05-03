@@ -26,7 +26,7 @@ const Footer = () => {
           rajtslegr.com
         </a>
         ,&nbsp;
-        <a href="https://github.com/petrpatek/covid-cz" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/apifytech/covid-19" target="_blank" rel="noopener noreferrer">
           Data Source
         </a>
       </p>

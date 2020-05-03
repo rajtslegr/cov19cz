@@ -36,7 +36,10 @@ const Cards = (props) => {
       </CardsContainer>
       <CardsContainer>
         <Card data={props.data.hospitalized}>Hospitalizováno</Card>
-        <Card data={props.data.critical}>Kriticky nakažených</Card>
+        {/* TODO: temporary fix because of API, should be {props.data.critical} */}
+        <Card data={props.data.hospitalizationData[props.data.hospitalizationData.length - 1][2]}>
+          Kriticky nakažených
+        </Card>
         <Card data={props.data.active}>Aktivních případů</Card>
         <Card data={lastUpdated} type="date">
           Poslední aktualizace
