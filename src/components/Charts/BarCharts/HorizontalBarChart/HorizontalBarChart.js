@@ -1,15 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Brush,
+  Bar, BarChart, Brush, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from 'recharts';
+import styled from 'styled-components';
 
 const ChartContainer = styled.div`
   background-color: white;
@@ -35,13 +29,13 @@ const Title = styled.div`
   }
 `;
 
-const Chart = (props) => {
+const Chart = ({ data, color, children }) => {
   return (
     <ChartContainer>
-      <Title>{props.children}</Title>
+      <Title>{children}</Title>
       <ResponsiveContainer width="100%" height="85%">
         <BarChart
-          data={props.data}
+          data={data}
           margin={{
             top: 20,
             right: 10,
@@ -63,13 +57,8 @@ const Chart = (props) => {
               return [`Počet: ${value}`];
             }}
           />
-          <Brush
-            dataKey="key"
-            startIndex={props.data.length - 31}
-            height={20}
-            stroke={props.color}
-          />
-          <Bar dataKey="data" fill={props.color} label={{ position: 'top', fontSize: '1vw' }} />
+          <Brush dataKey="key" startIndex={data.length - 31} height={20} stroke={color} />
+          <Bar dataKey="data" fill={color} label={{ position: 'top', fontSize: '1vw' }} />
         </BarChart>
       </ResponsiveContainer>
     </ChartContainer>

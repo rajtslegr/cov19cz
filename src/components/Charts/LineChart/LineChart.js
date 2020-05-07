@@ -1,14 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
+  CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from 'recharts';
+import styled from 'styled-components';
 
 const ChartContainer = styled.div`
   background-color: white;
@@ -34,7 +29,7 @@ const Title = styled.div`
   }
 `;
 
-const Chart = (props) => {
+const Chart = ({ type, data, color, children }) => {
   let tooltip = (
     <Tooltip
       formatter={(value) => {
@@ -43,7 +38,7 @@ const Chart = (props) => {
     />
   );
 
-  if (props.type === 'percent') {
+  if (type === 'percent') {
     tooltip = (
       <Tooltip
         formatter={(value) => {
@@ -51,11 +46,11 @@ const Chart = (props) => {
         }}
       />
     );
-  } else if (props.type === 'hospitalization') {
+  } else if (type === 'hospitalization') {
     tooltip = <Tooltip />;
   }
 
-  const dataOutput = props.data.filter((day) => day.data > 0);
+  const dataOutput = data.filter((day) => day.data > 0);
   let chartOutput = (
     <ResponsiveContainer width="100%" height="85%">
       <LineChart
@@ -70,16 +65,16 @@ const Chart = (props) => {
         <XAxis dataKey="key" interval={31} />
         <YAxis />
         {tooltip}
-        <Line dataKey="data" type="monotone" stroke={props.color} />
+        <Line dataKey="data" type="monotone" stroke={color} />
       </LineChart>
     </ResponsiveContainer>
   );
 
-  if (props.type === 'hospitalization') {
+  if (type === 'hospitalization') {
     chartOutput = (
       <ResponsiveContainer width="100%" height="85%">
         <LineChart
-          data={props.data}
+          data={data}
           margin={{
             top: 20,
             right: 10,
@@ -99,7 +94,7 @@ const Chart = (props) => {
 
   return (
     <ChartContainer>
-      <Title>{props.children}</Title>
+      <Title>{children}</Title>
       {chartOutput}
     </ChartContainer>
   );

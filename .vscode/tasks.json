@@ -24,7 +24,15 @@
     {
       "label": "npm stop",
       "type": "process",
-      "command": ["${command:workbench.action.tasks.terminate}"]
+      "command": ["${command:workbench.action.tasks.terminate}"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
     },
     {
       "label": "Open in Firefox",
@@ -33,8 +41,11 @@
         "isDefault": true
       },
       "command": "Firefox",
+      "linux": {
+        "command": "/mnt/c/Program Files/Firefox Developer Edition/firefox.exe"
+      },
       "windows": {
-        "command": "C:/Program Files/Mozilla Firefox/firefox.exe"
+        "command": "C:/Program Files/Firefox Developer Edition/firefox.exe"
       },
       "args": ["http://localhost:3000"],
       "presentation": {
@@ -53,8 +64,11 @@
         "isDefault": true
       },
       "command": "Opera",
+      "linux": {
+        "command": "/mnt/c/Users/petrr/AppData/Local/Programs/Opera developer/launcher.exe"
+      },
       "windows": {
-        "command": "C:/Users/petrr/AppData/Local/Programs/Opera/launcher.exe"
+        "command": "C:/Users/petrr/AppData/Local/Programs/Opera developer/launcher.exe"
       },
       "args": ["http://localhost:3000"],
       "presentation": {
@@ -73,8 +87,11 @@
         "isDefault": true
       },
       "command": "Edge",
+      "linux": {
+        "command": "/mnt/c/Users/petrr/AppData/Local/Microsoft/Edge SxS/Application/msedge.exe"
+      },
       "windows": {
-        "command": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+        "command": "C:/Users/petrr/AppData/Local/Microsoft/Edge SxS/Application/msedge.exe"
       },
       "args": ["http://localhost:3000"],
       "presentation": {
@@ -93,6 +110,9 @@
         "isDefault": true
       },
       "command": "IE",
+      "linux": {
+        "command": "/mnt/c/Program Files/Internet Explorer/iexplore.exe"
+      },
       "windows": {
         "command": "C:/Program Files/Internet Explorer/iexplore.exe"
       },

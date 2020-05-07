@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { PieChart, Pie, Legend, Tooltip, Cell, ResponsiveContainer } from 'recharts';
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+import styled from 'styled-components';
 
 const PieContainer = styled.div`
   background-color: white;
@@ -29,10 +29,10 @@ const Title = styled.div`
   }
 `;
 
-const Chart = (props) => {
+const Chart = ({ data, children }) => {
   let colors = [];
 
-  if (props.data.length > 2) {
+  if (data.length > 2) {
     colors = [
       '#8884d8',
       '#83a6ed',
@@ -50,7 +50,7 @@ const Chart = (props) => {
 
   return (
     <PieContainer>
-      <Title>{props.children}</Title>
+      <Title>{children}</Title>
       <ResponsiveContainer width="100%" height="85%">
         <PieChart
           margin={{
@@ -58,8 +58,8 @@ const Chart = (props) => {
             left: 20,
           }}
         >
-          <Pie data={props.data} dataKey="data" nameKey="key" label>
-            {props.data.map((_entry, index) => (
+          <Pie data={data} dataKey="data" nameKey="key" label>
+            {data.map((_entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
           </Pie>

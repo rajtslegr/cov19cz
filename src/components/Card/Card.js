@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import CountUp from 'react-countup';
+import styled from 'styled-components';
 
 const StyledCard = styled.div`
   position: relative;
@@ -47,17 +48,17 @@ const Value = styled.div`
   font-weight: bold;
 `;
 
-const Card = (props) => {
-  let valOutput = <CountUp start={0} end={parseFloat(props.data)} duration={1.5} />;
+const Card = ({ type, data, color, children }) => {
+  let valOutput = <CountUp start={0} end={parseFloat(data)} duration={1.5} />;
 
-  if (props.type === 'date') {
-    valOutput = props.data;
+  if (type === 'date') {
+    valOutput = data;
   }
 
   return (
     <StyledCard>
-      <Stripe color={props.color} />
-      <Title>{props.children}</Title>
+      <Stripe color={color} />
+      <Title>{children}</Title>
       <Value>{valOutput}</Value>
     </StyledCard>
   );

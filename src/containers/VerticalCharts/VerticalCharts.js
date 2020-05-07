@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
 import Chart from '../../components/Charts/BarCharts/VerticaBarChart/VerticalBarChart';
@@ -13,19 +14,21 @@ const ChartsContainer = styled.div`
   }
 `;
 
-const VerticalCharts = (props) => {
+const VerticalCharts = ({
+  data: { infectedByAgeSex, countryOfInfection, infectedByRegion, deceasedByRegion },
+}) => {
   const infectedAgeGender = [];
   const countryOfInf = [];
 
-  props.data.infectedByAgeSex[0].infectedByAge.map((group, i) => {
+  infectedByAgeSex[0].infectedByAge.map((group, i) => {
     return infectedAgeGender.push({
       name: group.age,
       Muž: group.value,
-      Žena: props.data.infectedByAgeSex[1].infectedByAge[i].value,
+      Žena: infectedByAgeSex[1].infectedByAge[i].value,
     });
   });
 
-  props.data.countryOfInfection.map((country) => {
+  countryOfInfection.map((country) => {
     return countryOfInf.push({
       name: country.countryName,
       value: country.value,
@@ -43,10 +46,10 @@ const VerticalCharts = (props) => {
         </Chart>
       </ChartsContainer>
       <ChartsContainer>
-        <Chart data={props.data.infectedByRegion} type="region" color="#d24040">
+        <Chart data={infectedByRegion} type="region" color="#d24040">
           Pozitivně testovaní podle regionu
         </Chart>
-        <Chart data={props.data.deceasedByRegion} type="region" color="#808080">
+        <Chart data={deceasedByRegion} type="region" color="#808080">
           Úmrtí podle regionu
         </Chart>
       </ChartsContainer>

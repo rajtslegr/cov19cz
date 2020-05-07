@@ -21,4 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.vscode/.history
+
+# vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ignore all local history of files
+**/.history

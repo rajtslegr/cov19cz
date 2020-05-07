@@ -1,6 +1,7 @@
 import React from 'react';
+
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styled from 'styled-components';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const ChartContainer = styled.div`
   background-color: white;
@@ -28,13 +29,13 @@ const Title = styled.div`
   }
 `;
 
-const Chart = (props) => {
+const Chart = ({ type, data, color, children }) => {
   let bars = null;
 
-  if (props.type === 'ageGender') {
+  if (type === 'ageGender') {
     bars = (
       <BarChart
-        data={props.data}
+        data={data}
         layout="vertical"
         margin={{
           top: 20,
@@ -53,7 +54,7 @@ const Chart = (props) => {
   } else {
     bars = (
       <BarChart
-        data={props.data}
+        data={data}
         layout="vertical"
         margin={{
           top: 20,
@@ -68,14 +69,14 @@ const Chart = (props) => {
             return [`Počet: ${value}`];
           }}
         />
-        <Bar dataKey="value" fill={props.color} />
+        <Bar dataKey="value" fill={color} />
       </BarChart>
     );
   }
 
   return (
     <ChartContainer>
-      <Title>{props.children}</Title>
+      <Title>{children}</Title>
       <ResponsiveContainer width="100%" height="92%">
         {bars}
       </ResponsiveContainer>

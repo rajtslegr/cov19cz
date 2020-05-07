@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
 import styled from 'styled-components';
 
+import Loader from '../../components/UI/Loader/Loader';
 import Cards from '../Cards/Cards';
 import HorizontalCharts from '../HorizontalCharts/HorizontalCharts';
-import Loader from '../../components/UI/Loader/Loader';
 import Pies from '../PieCharts/PieCharts';
 import VerticalCharts from '../VerticalCharts/VerticalCharts';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 
 import Pie from '../../components/Charts/PieChart/PieChart';
@@ -13,11 +14,11 @@ const PiesContainer = styled.div`
   }
 `;
 
-const Pies = (props) => {
+const Pies = ({ data: { infectedByAgeSex } }) => {
   const genderData = [
     {
       key: 'Muž',
-      data: props.data.infectedByAgeSex[0].infectedByAge
+      data: infectedByAgeSex[0].infectedByAge
         .map((o) => o.value)
         .reduce((a, c) => {
           return a + c;
@@ -25,7 +26,7 @@ const Pies = (props) => {
     },
     {
       key: 'Žena',
-      data: props.data.infectedByAgeSex[1].infectedByAge
+      data: infectedByAgeSex[1].infectedByAge
         .map((o) => o.value)
         .reduce((a, c) => {
           return a + c;
@@ -34,13 +35,11 @@ const Pies = (props) => {
   ];
 
   const ageData = Object.values(
-    props.data.infectedByAgeSex[0].infectedByAge
-      .concat(props.data.infectedByAgeSex[1].infectedByAge)
-      .reduce((a, c) => {
-        a[c.age] = a[c.age] || { key: c.age, data: 0 };
-        a[c.age].data += c.value;
-        return a;
-      }, {}),
+    infectedByAgeSex[0].infectedByAge.concat(infectedByAgeSex[1].infectedByAge).reduce((a, c) => {
+      a[c.age] = a[c.age] || { key: c.age, data: 0 };
+      a[c.age].data += c.value;
+      return a;
+    }, {}),
   );
 
   return (

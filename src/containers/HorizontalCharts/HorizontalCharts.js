@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import helpers from '../../helpers/Helpers';
+import styled from 'styled-components';
 
 import BarChart from '../../components/Charts/BarCharts/HorizontalBarChart/HorizontalBarChart';
 import LineChart from '../../components/Charts/LineChart/LineChart';
+import helpers from '../../helpers/Helpers';
 
 const ChartsContainer = styled.div`
   width: 100%;
@@ -13,7 +13,9 @@ const ChartsContainer = styled.div`
   justify-content: center;
 `;
 
-const HorizontalCharts = (props) => {
+const HorizontalCharts = ({
+  data: { infectedDaily, numberOfTestedGraph, totalPositiveTests, hospitalizationData },
+}) => {
   const prepareChartData = (data, reCalcCum = false) => {
     const dataOutput = [];
 
@@ -35,23 +37,23 @@ const HorizontalCharts = (props) => {
     return dataOutput;
   };
 
-  const infectedDaily = prepareChartData(props.data.infectedDaily);
-  const testedDaily = prepareChartData(props.data.numberOfTestedGraph, true);
-  const infectedCum = prepareChartData(props.data.totalPositiveTests);
-  const testedCum = prepareChartData(props.data.numberOfTestedGraph);
-  const positivePercent = [];
-  const hospitalizationData = [];
+  const infectedDailyOutput = prepareChartData(infectedDaily);
+  const testedDailyOutput = prepareChartData(numberOfTestedGraph, true);
+  const infectedCumOutput = prepareChartData(totalPositiveTests);
+  const testedCumOutput = prepareChartData(numberOfTestedGraph);
+  const positivePercentOutput = [];
+  const hospitalizationDataOutput = [];
 
-  testedDaily.map((testDay) => {
-    const getDay = infectedDaily.find((infDay) => infDay.key === testDay.key);
-    return positivePercent.push({
+  testedDailyOutput.map((testDay) => {
+    const getDay = infectedDailyOutput.find((infDay) => infDay.key === testDay.key);
+    return positivePercentOutput.push({
       key: testDay.key,
       data: (getDay.data / testDay.data) * 100,
     });
   });
 
-  props.data.hospitalizationData.slice(1).map((day) => {
-    return hospitalizationData.push({
+  hospitalizationData.slice(1).map((day) => {
+    return hospitalizationDataOutput.push({
       key: helpers.formatDate(day[0]),
       Hospitalizováno: day[1],
       'Kritických pacientů': day[2],
@@ -60,22 +62,22 @@ const HorizontalCharts = (props) => {
 
   return (
     <ChartsContainer>
-      <BarChart data={infectedDaily} color="#d24040">
+      <BarChart data={infectedDailyOutput} color="#d24040">
         Denní přírůstek pozitivně testovaných
       </BarChart>
-      <BarChart data={testedDaily} color="#8884d8">
+      <BarChart data={testedDailyOutput} color="#8884d8">
         Denní přírůstek provedených testů
       </BarChart>
-      <LineChart data={infectedCum} color="#d24040">
+      <LineChart data={infectedCumOutput} color="#d24040">
         Kumulativní počet pozitivně testovaných
       </LineChart>
-      <LineChart data={testedCum} color="#8884d8">
+      <LineChart data={testedCumOutput} color="#8884d8">
         Kumulativní počet provedených testů
       </LineChart>
-      <LineChart data={positivePercent} color="#000000" type="percent">
+      <LineChart data={positivePercentOutput} color="#000000" type="percent">
         Denní procentuální poměr pozitivně testovaných a provedených testů
       </LineChart>
-      <LineChart data={hospitalizationData} type="hospitalization">
+      <LineChart data={hospitalizationDataOutput} type="hospitalization">
         Denní počet hospitalizovaných a kriticky nakažených pacientů
       </LineChart>
     </ChartsContainer>
