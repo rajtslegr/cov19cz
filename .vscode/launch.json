@@ -12,7 +12,7 @@
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
       "sourceMapPathOverrides": {
-        "/mnt/c/*": "/__vscode-remote-uri__/mnt/c/*"
+        "/*": "/__vscode-remote-uri__/*"
       }
       // For Windows use:
       // "sourceMapPathOverrides": {

@@ -24,7 +24,7 @@ const Cards = ({
     recovered,
     deceased,
     hospitalized,
-    hospitalizationData,
+    critical,
     active,
   },
 }) => {
@@ -48,10 +48,7 @@ const Cards = ({
       </CardsContainer>
       <CardsContainer>
         <Card data={hospitalized}>Hospitalizováno</Card>
-        {/* TODO: temporary fix because of API, should be {critical} */}
-        <Card data={hospitalizationData[hospitalizationData.length - 1][2]}>
-          Kriticky nakažených
-        </Card>
+        <Card data={critical}>Kriticky nakažených</Card>
         <Card data={active}>Aktivních případů</Card>
         <Card data={lastUpdated} type="date">
           Poslední aktualizace

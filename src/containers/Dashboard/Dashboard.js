@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import Error from '../../components/UI/Error/Error';
 import Loader from '../../components/UI/Loader/Loader';
 import Cards from '../Cards/Cards';
 import HorizontalCharts from '../HorizontalCharts/HorizontalCharts';
@@ -57,7 +58,12 @@ const Dashboard = () => {
   });
 
   let dashboardOutput = <Loader />;
-  if (!data.loading) {
+
+  if (data.error) {
+    dashboardOutput = <Error />;
+  }
+
+  if (!data.loading && !data.error) {
     dashboardOutput = (
       <DashboardContainer>
         <Cards data={data.covData} />
