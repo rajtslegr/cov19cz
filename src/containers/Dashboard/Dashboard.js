@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-import Error from '../../components/UI/Error/Error';
 import Loader from '../../components/UI/Loader/Loader';
+import ErrorBoundary from '../../hoc/ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
 import HorizontalCharts from '../HorizontalCharts/HorizontalCharts';
 import Pies from '../PieCharts/PieCharts';
@@ -59,18 +59,16 @@ const Dashboard = () => {
 
   let dashboardOutput = <Loader />;
 
-  if (data.error) {
-    dashboardOutput = <Error />;
-  }
-
   if (!data.loading && !data.error) {
     dashboardOutput = (
-      <DashboardContainer>
-        <Cards data={data.covData} />
-        <HorizontalCharts data={data.covData} />
-        <Pies data={data.covData} />
-        <VerticalCharts data={data.covData} />
-      </DashboardContainer>
+      <ErrorBoundary>
+        <DashboardContainer>
+          <Cards data={data.covData} />
+          <HorizontalCharts data={data.covData} />
+          <Pies data={data.covData} />
+          <VerticalCharts data={data.covData} />
+        </DashboardContainer>
+      </ErrorBoundary>
     );
   }
 

@@ -81,6 +81,29 @@
       }
     },
     {
+      "label": "Open in Brave",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "Brave",
+      "linux": {
+        "command": "/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser-Nightly/Application/brave.exe"
+      },
+      "windows": {
+        "command": "C:/Program Files (x86)/BraveSoftware/Brave-Browser-Nightly/Application/brave.exe"
+      },
+      "args": ["http://localhost:3000"],
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
       "label": "Open in Edge",
       "group": {
         "kind": "test",
