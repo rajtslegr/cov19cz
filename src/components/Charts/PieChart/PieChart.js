@@ -60,6 +60,7 @@ const Chart = ({ data, children }) => {
         >
           <Pie data={data} dataKey="data" nameKey="key" label>
             {data.map((_entry, index) => (
+              // eslint-disable-next-line react/no-array-index-key
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
           </Pie>

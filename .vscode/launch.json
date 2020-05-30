@@ -7,7 +7,6 @@
       "preLaunchTask": "npm: start",
       "postDebugTask": "npm stop",
       "request": "launch",
-      "runtimeExecutable": "C:/Users/petrr/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
       "userDataDir": true,
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",

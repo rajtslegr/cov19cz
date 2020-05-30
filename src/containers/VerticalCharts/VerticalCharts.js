@@ -15,10 +15,15 @@ const ChartsContainer = styled.div`
 `;
 
 const VerticalCharts = ({
-  data: { infectedByAgeSex, countryOfInfection, infectedByRegion, deceasedByRegion },
+  data: {
+    infectedByAgeSex,
+    // countryOfInfection,
+    infectedByRegion,
+    deceasedByRegion,
+  },
 }) => {
   const infectedAgeGender = [];
-  const countryOfInf = [];
+  // const countryOfInf = [];
 
   infectedByAgeSex[0].infectedByAge.map((group, i) => {
     return infectedAgeGender.push({
@@ -28,21 +33,21 @@ const VerticalCharts = ({
     });
   });
 
-  countryOfInfection.map((country) => {
-    return countryOfInf.push({
-      name: country.countryName,
-      value: country.value,
-    });
-  });
+  // countryOfInfection.map((country) => {
+  //   return countryOfInf.push({
+  //     name: country.countryName,
+  //     value: country.value,
+  //   });
+  // });
 
   return (
     <>
+      {/* <Chart data={countryOfInf} type="region" color="#d24040">
+          Země nákazy
+        </Chart> */}
       <ChartsContainer>
         <Chart data={infectedAgeGender} type="ageGender">
           Věk pozitivně testovaných podle pohlaví
-        </Chart>
-        <Chart data={countryOfInf} type="region" color="#d24040">
-          Země nákazy
         </Chart>
       </ChartsContainer>
       <ChartsContainer>
