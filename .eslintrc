@@ -9,6 +9,10 @@
   },
   "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
   "plugins": ["prettier"],
+  "globals": {
+    "localStorage": true,
+    "fetch": true
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -17,20 +21,21 @@
       }
     ],
     "radix": 0,
-    "no-restricted-syntax": 0,
+    "consistent-return": 0,
     "no-await-in-loop": 0,
     "no-console": 0,
-    "consistent-return": 0,
     "no-param-reassign": [2, { "props": false }],
+    "no-restricted-syntax": 0,
     "no-return-assign": [2, "except-parens"],
-    "no-use-before-define": 0,
+    "no-underscore-dangle": 0,
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
-    "import/prefer-default-export": 0,
+    "no-use-before-define": 0,
     "import/no-cycle": 0,
+    "import/prefer-default-export": 0,
     "react/forbid-prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
     "react/prop-types": [2, { "skipUndeclared": true }],
     "react/state-in-constructor": 0,
-    "react/jsx-props-no-spreading": 0,
     "jsx-a11y/click-events-have-key-events": 0
   },
   "settings": {

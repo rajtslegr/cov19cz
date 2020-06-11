@@ -3,20 +3,15 @@
   "configurations": [
     {
       "name": "Chrome",
-      "type": "chrome",
+      "type": "pwa-chrome",
       "preLaunchTask": "npm: start",
       "postDebugTask": "npm stop",
       "request": "launch",
-      "userDataDir": true,
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/src",
       "sourceMapPathOverrides": {
-        "/*": "/__vscode-remote-uri__/*"
+        "webpack:///src/*": "${webRoot}/*"
       }
-      // For Windows use:
-      // "sourceMapPathOverrides": {
-      //   "webpack:///src/*": "${webRoot}/*"
-      // }
     }
   ]
 }
