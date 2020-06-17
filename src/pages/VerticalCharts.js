@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Chart from '../../components/Charts/BarCharts/VerticaBarChart/VerticalBarChart';
+import Chart from '../components/Charts/BarCharts/VerticalBarChart';
 
 const ChartsContainer = styled.div`
   width: 100%;
@@ -20,6 +20,7 @@ const VerticalCharts = ({
     // countryOfInfection,
     infectedByRegion,
     deceasedByRegion,
+    recoveredByRegion,
   },
 }) => {
   const infectedAgeGender = [];
@@ -49,10 +50,13 @@ const VerticalCharts = ({
         <Chart data={infectedAgeGender} type="ageGender">
           Věk pozitivně testovaných podle pohlaví
         </Chart>
-      </ChartsContainer>
-      <ChartsContainer>
         <Chart data={infectedByRegion} type="region" color="#d24040">
           Pozitivně testovaní podle regionu
+        </Chart>
+      </ChartsContainer>
+      <ChartsContainer>
+        <Chart data={recoveredByRegion} type="region" color="#008000">
+          Uzdravení podle regionu
         </Chart>
         <Chart data={deceasedByRegion} type="region" color="#808080">
           Úmrtí podle regionu

@@ -2,8 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Card from '../../components/Card/Card';
-import helpers from '../../helpers/Helpers';
+import Card from '../components/Card';
+import helpers from '../utils/Helpers';
 
 const CardsContainer = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const Cards = ({
     recovered,
     deceased,
     hospitalized,
-    critical,
+    // critical,
     active,
   },
 }) => {
@@ -48,7 +48,7 @@ const Cards = ({
       </CardsContainer>
       <CardsContainer>
         <Card data={hospitalized}>Hospitalizováno</Card>
-        <Card data={critical}>Kriticky nakažených</Card>
+        {/* <Card data={critical}>Kriticky nakažených</Card> */}
         <Card data={active}>Aktivních případů</Card>
         <Card data={lastUpdated} type="date">
           Poslední aktualizace

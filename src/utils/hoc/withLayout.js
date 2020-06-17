@@ -2,8 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Footer from '../../components/Navigation/Footer/Footer';
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Footer from '../../components/Navigation/Footer';
+import Toolbar from '../../components/Navigation/Toolbar';
 
 const View = styled.div`
   position: relative;
@@ -14,7 +14,7 @@ const Main = styled.main`
   padding-bottom: 56px;
 `;
 
-const Layout = ({ children }) => {
+const WithLayout = ({ children }) => {
   return (
     <View>
       <Toolbar />
@@ -24,4 +24,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default WithLayout;

@@ -2,9 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import BarChart from '../../components/Charts/BarCharts/HorizontalBarChart/HorizontalBarChart';
-import LineChart from '../../components/Charts/LineChart/LineChart';
-import helpers from '../../helpers/Helpers';
+import BarChart from '../components/Charts/BarCharts/HorizontalBarChart';
+import LineChart from '../components/Charts/LineChart';
+import helpers from '../utils/Helpers';
 
 const ChartsContainer = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const HorizontalCharts = ({
       let value = 0;
 
       if (i > 0 && reCalcCum === true) {
-        value = data[i].value - data[i - 1].value;
+        value = dataOutput[i - 1].data + data[i].value;
       } else {
         value = data[i].value;
       }
@@ -38,11 +38,12 @@ const HorizontalCharts = ({
   };
 
   const infectedDailyOutput = prepareChartData(infectedDaily);
-  const testedDailyOutput = prepareChartData(numberOfTestedGraph, true);
-  const infectedCumOutput = prepareChartData(totalPositiveTests);
-  const testedCumOutput = prepareChartData(numberOfTestedGraph);
+  const testedDailyOutput = prepareChartData(numberOfTestedGraph);
+  const infectedCumOutput = prepareChartData(totalPositiveTests, true);
+  const testedCumOutput = prepareChartData(numberOfTestedGraph, true);
   const positivePercentOutput = [];
   const hospitalizationDataOutput = [];
+  const activeDataOutput = [];
 
   testedDailyOutput.map((testDay) => {
     const getDay = infectedDailyOutput.find((infDay) => infDay.key === testDay.key);
@@ -54,9 +55,15 @@ const HorizontalCharts = ({
 
   hospitalizationData.slice(1).map((day) => {
     return hospitalizationDataOutput.push({
-      key: helpers.formatDate(day[0]),
-      Hospitalizováno: day[1],
-      'Kritických pacientů': day[2],
+      key: helpers.formatDate(day.reportDate),
+      data: day.hosp,
+    });
+  });
+
+  hospitalizationData.slice(1).map((day) => {
+    return activeDataOutput.push({
+      key: helpers.formatDate(day.reportDate),
+      data: day.active,
     });
   });
 
@@ -77,8 +84,11 @@ const HorizontalCharts = ({
       <LineChart data={positivePercentOutput} color="#000000" type="percent">
         Denní procentuální poměr pozitivně testovaných a provedených testů
       </LineChart>
-      <LineChart data={hospitalizationDataOutput} type="hospitalization">
-        Denní počet hospitalizovaných a kriticky nakažených pacientů
+      <LineChart data={activeDataOutput} color="#ffc658">
+        Denní počet aktivních případů
+      </LineChart>
+      <LineChart data={hospitalizationDataOutput} color="#ff8042">
+        Denní počet hospitalizovaných pacientů
       </LineChart>
     </ChartsContainer>
   );

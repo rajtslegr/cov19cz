@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Pie from '../../components/Charts/PieChart/PieChart';
+import Pie from '../components/Charts/PieChart';
 
 const PiesContainer = styled.div`
   width: 100%;

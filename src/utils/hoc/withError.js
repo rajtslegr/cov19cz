@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Error from '../../components/UI/Error/Error';
+import Error from '../../components/UI/Error';
 
-class ErrorBoundary extends Component {
+class WithError extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -23,4 +23,4 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary;
+export default WithError;

@@ -1,14 +1,17 @@
 import React from 'react';
-import Layout from './hoc/Layout/Layout';
-import Dashboard from './containers/Dashboard/Dashboard';
+
+import Dashboard from './pages/Dashboard';
+import Layout from './utils/hoc/withLayout';
+import GlobalStyle from './utils/styles/Global';
 
 function App() {
   return (
-    <div>
+    <>
       <Layout>
+        <GlobalStyle />
         <Dashboard />
       </Layout>
-    </div>
+    </>
   );
 }
 
