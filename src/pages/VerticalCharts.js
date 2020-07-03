@@ -53,8 +53,6 @@ const VerticalCharts = ({
         <Chart data={infectedByRegion} type="region" color="#d24040">
           Pozitivně testovaní podle regionu
         </Chart>
-      </ChartsContainer>
-      <ChartsContainer>
         <Chart data={recoveredByRegion} type="region" color="#008000">
           Uzdravení podle regionu
         </Chart>

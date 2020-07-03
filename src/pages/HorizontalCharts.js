@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import BarChart from '../components/Charts/BarCharts/HorizontalBarChart';
 import LineChart from '../components/Charts/LineChart';
-import helpers from '../utils/Helpers';
+import { formatDate } from '../utils/Helpers';
 
 const ChartsContainer = styled.div`
   width: 100%;
@@ -29,7 +29,7 @@ const HorizontalCharts = ({
       }
 
       dataOutput.push({
-        key: helpers.formatDate(data[i].date),
+        key: formatDate(data[i].date),
         data: value,
       });
     }
@@ -55,14 +55,14 @@ const HorizontalCharts = ({
 
   hospitalizationData.slice(1).map((day) => {
     return hospitalizationDataOutput.push({
-      key: helpers.formatDate(day.reportDate),
+      key: formatDate(day.reportDate),
       data: day.hosp,
     });
   });
 
   hospitalizationData.slice(1).map((day) => {
     return activeDataOutput.push({
-      key: helpers.formatDate(day.reportDate),
+      key: formatDate(day.reportDate),
       data: day.active,
     });
   });

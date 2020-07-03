@@ -35,17 +35,17 @@
       }
     },
     {
-      "label": "Open in Chrome Canary",
+      "label": "Open in Chrome",
       "group": {
         "kind": "test",
         "isDefault": true
       },
-      "command": "Chrome Canary",
+      "command": "Chrome",
       "linux": {
-        "command": "/mnt/c/Users/petrr/AppData/Local/Google/Chrome SxS/Application/chrome.exe"
+        "command": "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
       },
       "windows": {
-        "command": "C:/Users/petrr/AppData/Local/Google/Chrome SxS/Application/chrome.exe"
+        "command": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
       },
       "args": ["http://localhost:3000"],
       "presentation": {

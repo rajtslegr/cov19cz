@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Card from '../components/Card';
-import helpers from '../utils/Helpers';
+import { formatDateTime } from '../utils/Helpers';
 
 const CardsContainer = styled.div`
   width: 100%;
@@ -19,6 +19,7 @@ const CardsContainer = styled.div`
 const Cards = ({
   data: {
     lastUpdatedAtSource,
+    lastUpdatedAtApify,
     infected,
     totalTested,
     recovered,
@@ -28,7 +29,8 @@ const Cards = ({
     active,
   },
 }) => {
-  const lastUpdated = helpers.formatDateTime(lastUpdatedAtSource);
+  const lastUpdatedApi = formatDateTime(lastUpdatedAtApify);
+  const lastUpdatedSource = formatDateTime(lastUpdatedAtSource);
 
   return (
     <>
@@ -50,7 +52,10 @@ const Cards = ({
         <Card data={hospitalized}>Hospitalizováno</Card>
         {/* <Card data={critical}>Kriticky nakažených</Card> */}
         <Card data={active}>Aktivních případů</Card>
-        <Card data={lastUpdated} type="date">
+        <Card data={lastUpdatedApi} type="date">
+          Poslední aktualizace zdroje
+        </Card>
+        <Card data={lastUpdatedSource} type="date">
           Poslední aktualizace
         </Card>
       </CardsContainer>
