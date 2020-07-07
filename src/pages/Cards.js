@@ -52,10 +52,10 @@ const Cards = ({
         <Card data={hospitalized}>Hospitalizováno</Card>
         {/* <Card data={critical}>Kriticky nakažených</Card> */}
         <Card data={active}>Aktivních případů</Card>
-        <Card data={lastUpdatedApi} type="date">
+        <Card data={lastUpdatedSource} type="date">
           Poslední aktualizace zdroje
         </Card>
-        <Card data={lastUpdatedSource} type="date">
+        <Card data={lastUpdatedApi} type="date">
           Poslední aktualizace
         </Card>
       </CardsContainer>

@@ -9,7 +9,7 @@ const ChartsContainer = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 599px) {
+  @media (max-width: 1199px) {
     flex-direction: column;
   }
 `;
