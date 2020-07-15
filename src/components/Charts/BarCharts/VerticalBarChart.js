@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const ChartContainer = styled.div`
   background-color: white;
-  width: 33%;
+  width: 100%;
   box-sizing: border-box;
   height: 72vh;
   padding: 8px;
@@ -14,7 +14,6 @@ const ChartContainer = styled.div`
   border-radius: 5px;
 
   @media (max-width: 1199px) {
-    width: 100%;
     margin: 8px 0;
     padding: 8px 0;
   }

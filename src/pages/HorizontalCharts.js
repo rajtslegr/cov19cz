@@ -23,7 +23,7 @@ const HorizontalCharts = ({
       let value = 0;
 
       if (i > 0 && reCalcCum === true) {
-        value = dataOutput[i - 1].data + data[i].value;
+        value = data[i].value - data[i - 1].value;
       } else {
         value = data[i].value;
       }
@@ -38,9 +38,9 @@ const HorizontalCharts = ({
   };
 
   const infectedDailyOutput = prepareChartData(infectedDaily);
-  const testedDailyOutput = prepareChartData(numberOfTestedGraph);
-  const infectedCumOutput = prepareChartData(totalPositiveTests, true);
-  const testedCumOutput = prepareChartData(numberOfTestedGraph, true);
+  const testedDailyOutput = prepareChartData(numberOfTestedGraph, true);
+  const infectedCumOutput = prepareChartData(totalPositiveTests);
+  const testedCumOutput = prepareChartData(numberOfTestedGraph);
   const positivePercentOutput = [];
   const hospitalizationDataOutput = [];
   const activeDataOutput = [];
@@ -55,8 +55,9 @@ const HorizontalCharts = ({
 
   hospitalizationData.slice(1).map((day) => {
     return hospitalizationDataOutput.push({
-      key: formatDate(day.reportDate),
-      data: day.hosp,
+      key: formatDate(day[0]),
+      Hospitalizováno: day[1],
+      'Kritických pacientů': day[2],
     });
   });
 
@@ -84,11 +85,8 @@ const HorizontalCharts = ({
       <LineChart data={positivePercentOutput} color="#000000" type="percent">
         Denní procentuální poměr pozitivně testovaných a provedených testů
       </LineChart>
-      <LineChart data={activeDataOutput} color="#ffc658">
-        Denní počet aktivních případů
-      </LineChart>
-      <LineChart data={hospitalizationDataOutput} color="#ff8042">
-        Denní počet hospitalizovaných pacientů
+      <LineChart data={hospitalizationDataOutput} type="hospitalization">
+        Denní počet hospitalizovaných a kriticky nakažených pacientů
       </LineChart>
     </ChartsContainer>
   );

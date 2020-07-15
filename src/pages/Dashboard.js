@@ -7,7 +7,7 @@ import Loader from '../components/UI/Loader';
 import WithError from '../utils/hoc/withError';
 import Cards from './Cards';
 import HorizontalCharts from './HorizontalCharts';
-// import Pies from './PieCharts';
+import Pies from './PieCharts';
 import VerticalCharts from './VerticalCharts';
 
 const DashboardContainer = styled.div`
@@ -65,7 +65,7 @@ const Dashboard = () => {
         <DashboardContainer>
           <Cards data={data.covData} />
           <HorizontalCharts data={data.covData} />
-          {/* <Pies data={data.covData} /> */}
+          <Pies data={data.covData} />
           <VerticalCharts data={data.covData} />
         </DashboardContainer>
       </WithError>

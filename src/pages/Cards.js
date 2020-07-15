@@ -19,18 +19,17 @@ const CardsContainer = styled.div`
 const Cards = ({
   data: {
     lastUpdatedAtSource,
-    lastUpdatedAtApify,
     infected,
-    totalTested,
+    // totalTested,
     recovered,
     deceased,
     hospitalized,
-    // critical,
+    critical,
     active,
+    numberOfTestedGraph,
   },
 }) => {
-  const lastUpdatedApi = formatDateTime(lastUpdatedAtApify);
-  const lastUpdatedSource = formatDateTime(lastUpdatedAtSource);
+  const lastUpdatedApi = formatDateTime(lastUpdatedAtSource);
 
   return (
     <>
@@ -38,7 +37,7 @@ const Cards = ({
         <Card data={infected} color="#d24040">
           Pozitivně testovaných
         </Card>
-        <Card data={totalTested} color="#8884d8">
+        <Card data={numberOfTestedGraph[numberOfTestedGraph.length - 1].value} color="#8884d8">
           Provedených testů
         </Card>
         <Card data={recovered} color="#008000">
@@ -50,11 +49,8 @@ const Cards = ({
       </CardsContainer>
       <CardsContainer>
         <Card data={hospitalized}>Hospitalizováno</Card>
-        {/* <Card data={critical}>Kriticky nakažených</Card> */}
+        <Card data={critical}>Kriticky nakažených</Card>
         <Card data={active}>Aktivních případů</Card>
-        <Card data={lastUpdatedSource} type="date">
-          Poslední aktualizace zdroje
-        </Card>
         <Card data={lastUpdatedApi} type="date">
           Poslední aktualizace
         </Card>
