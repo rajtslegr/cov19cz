@@ -20,13 +20,12 @@ const Cards = ({
   data: {
     lastUpdatedAtSource,
     infected,
-    // totalTested,
+    totalTested,
     recovered,
     deceased,
     hospitalized,
     critical,
     active,
-    numberOfTestedGraph,
   },
 }) => {
   const lastUpdatedApi = formatDateTime(lastUpdatedAtSource);
@@ -37,7 +36,7 @@ const Cards = ({
         <Card data={infected} color="#d24040">
           Pozitivně testovaných
         </Card>
-        <Card data={numberOfTestedGraph[numberOfTestedGraph.length - 1].value} color="#8884d8">
+        <Card data={totalTested} color="#8884d8">
           Provedených testů
         </Card>
         <Card data={recovered} color="#008000">
