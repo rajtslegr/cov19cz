@@ -14,7 +14,9 @@ const ChartsContainer = styled.div`
   }
 `;
 
-const VerticalCharts = ({ data: { infectedByAgeSex } }) => {
+const VerticalCharts = ({
+  data: { infectedByAgeSex, infectedByRegion, deceasedByRegion, recoveredByRegion },
+}) => {
   const infectedAgeGender = [];
 
   infectedByAgeSex[0].infectedByAge.map((group, i) => {
@@ -30,6 +32,17 @@ const VerticalCharts = ({ data: { infectedByAgeSex } }) => {
       <ChartsContainer>
         <Chart data={infectedAgeGender} type="ageGender">
           Věk pozitivně testovaných podle pohlaví
+        </Chart>
+        <Chart data={infectedByRegion} type="region" color="#d24040">
+          Pozitivně testovaní podle regionu
+        </Chart>
+      </ChartsContainer>
+      <ChartsContainer>
+        <Chart data={recoveredByRegion} type="region" color="#008000">
+          Uzdravení podle regionu
+        </Chart>
+        <Chart data={deceasedByRegion} type="region" color="#808080">
+          Úmrtí podle regionu
         </Chart>
       </ChartsContainer>
     </>
