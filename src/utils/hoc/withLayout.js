@@ -7,6 +7,7 @@ import Toolbar from '../../components/Navigation/Toolbar';
 
 const View = styled.div`
   position: relative;
+  min-width: 100%;
   min-height: 100vh;
 `;
 

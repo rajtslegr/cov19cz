@@ -58,7 +58,7 @@ const Chart = ({ data, color, children }) => {
             }}
           />
           <Brush dataKey="key" startIndex={data.length - 31} height={20} stroke={color} />
-          <Bar dataKey="data" fill={color} label={{ position: 'top', fontSize: '1vw' }} />
+          <Bar dataKey="data" fill={color} label={{ position: 'top', fontSize: 'auto' }} />
         </BarChart>
       </ResponsiveContainer>
     </ChartContainer>
