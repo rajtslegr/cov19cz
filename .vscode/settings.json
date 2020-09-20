@@ -1,6 +1,10 @@
 {
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.stylelint",
+    "source.fixAll.eslint"
+  ],
   "editor.formatOnSave": true,
-  "tsImportSorter.configuration.autoFormat": "onSave",
   "emmet.includeLanguages": {
     "*.js": "javascriptreact"
   },
@@ -8,11 +12,12 @@
     "*.js": "javascriptreact"
   },
   "peacock.color": "#221a36",
+  "peacock.remoteColor": "#221a36",
+  "tsImportSorter.configuration.autoFormat": "onSave",
   "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#61dafb",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#61dafb99",
-    "titleBar.inactiveForeground": "#15202b99"
-  },
-  "peacock.remoteColor": "#61dafb"
+    "titleBar.activeBackground": "#221a36",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#221a3699",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
 }

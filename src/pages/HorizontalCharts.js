@@ -58,6 +58,7 @@ const HorizontalCharts = ({
       key: formatDate(day[0]),
       Hospitalizováno: day[1],
       'Kritických pacientů': day[2],
+      Propuštěno: day[4],
     });
   });
 

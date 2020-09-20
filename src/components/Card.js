@@ -38,7 +38,7 @@ const Stripe = styled.div`
 const Title = styled.div`
   font-size: 1.4rem;
 
-  @media (max-width: 599px) {
+  @media (max-width: 1169px) {
     font-size: 1rem;
   }
 `;
@@ -46,6 +46,10 @@ const Title = styled.div`
 const Value = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+
+  @media (max-width: 1169px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Card = ({ type, data, color, children }) => {

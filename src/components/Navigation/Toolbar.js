@@ -1,6 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import Headroom from 'react-headroom';
+import styled from 'styled-components';
+
+import erouska from '../../assets/erouska.svg';
 
 const Header = styled.header`
   height: 56px;
@@ -22,6 +25,10 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
+const Logo = styled.img`
+  height: 36px;
+`;
+
 const Toolbar = () => {
   return (
     <Headroom>
@@ -32,6 +39,9 @@ const Toolbar = () => {
           </span>
           cov19cz
         </Title>
+        <a href="https://erouska.cz/app/sdilej" rel="noopener noreferrer" target="_blank">
+          <Logo src={erouska} alt="eRouška" />
+        </a>
       </Header>
     </Headroom>
   );

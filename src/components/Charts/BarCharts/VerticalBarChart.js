@@ -23,7 +23,7 @@ const Title = styled.div`
   padding: 8px;
   font-size: 1.4rem;
 
-  @media (max-width: 599px) {
+  @media (max-width: 1169px) {
     font-size: 1rem;
   }
 `;
