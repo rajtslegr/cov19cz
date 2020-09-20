@@ -62,7 +62,7 @@ const Chart = ({ type, data, color, children }) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="key" interval={31} />
+        <XAxis dataKey="key" />
         <YAxis />
         {tooltip}
         <Line dataKey="data" type="monotone" stroke={color} />
@@ -82,7 +82,7 @@ const Chart = ({ type, data, color, children }) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="key" interval={31} />
+          <XAxis dataKey="key" />
           <YAxis />
           {tooltip}
           <Line dataKey="Hospitalizováno" type="monotone" stroke="#ffc658" />
