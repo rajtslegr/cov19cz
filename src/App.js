@@ -6,12 +6,10 @@ import GlobalStyle from './utils/styles/Global';
 
 function App() {
   return (
-    <>
-      <Layout>
-        <GlobalStyle />
-        <Dashboard />
-      </Layout>
-    </>
+    <Layout>
+      <GlobalStyle />
+      <Dashboard />
+    </Layout>
   );
 }
 
