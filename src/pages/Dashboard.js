@@ -38,6 +38,9 @@ const Dashboard = () => {
             'https://api.apify.com/v2/key-value-stores/K373S4uCFR9W1K8ei/records/LATEST?disableRedirect=true',
           )
           .then((response) => {
+            // temporary API errors fixes
+            response.data.infectedByAgeSex[0].infectedByAge.pop();
+
             setData({
               ...data,
               covData: response.data,
