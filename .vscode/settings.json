@@ -11,7 +11,7 @@
   "files.associations": {
     "*.js": "javascriptreact"
   },
-  "peacock.color": "#61dafb",
+  "peacock.color": "#221a36",
   "peacock.remoteColor": "#61dafb",
   "tsImportSorter.configuration.autoFormat": "onSave",
   "workbench.colorCustomizations": {
