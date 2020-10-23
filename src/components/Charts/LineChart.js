@@ -57,7 +57,7 @@ const Chart = ({ type, data, color, children }) => {
         data={dataOutput}
         margin={{
           top: 20,
-          right: 10,
+          right: 15,
           left: 8,
         }}
       >
@@ -77,7 +77,7 @@ const Chart = ({ type, data, color, children }) => {
           data={data}
           margin={{
             top: 20,
-            right: 10,
+            right: 15,
             left: 8,
           }}
         >

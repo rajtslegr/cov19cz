@@ -38,7 +38,7 @@ const Chart = ({ data, color, children }) => {
           data={data}
           margin={{
             top: 20,
-            right: 10,
+            right: 15,
             left: 8,
           }}
         >

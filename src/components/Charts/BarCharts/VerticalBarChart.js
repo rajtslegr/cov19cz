@@ -38,7 +38,7 @@ const Chart = ({ type, data, color, children }) => {
         layout="vertical"
         margin={{
           top: 20,
-          right: 10,
+          right: 15,
           left: 8,
         }}
       >
@@ -57,7 +57,8 @@ const Chart = ({ type, data, color, children }) => {
         layout="vertical"
         margin={{
           top: 20,
-          right: 10,
+          right: 15,
+          left: 8,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
