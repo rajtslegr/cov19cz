@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styled from 'styled-components';
 
@@ -64,11 +63,7 @@ const Chart = ({ type, data, color, children }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis type="number" />
         <YAxis type="category" dataKey="name" tick={{ fontSize: 7 }} interval={0} />
-        <Tooltip
-          formatter={(value) => {
-            return [`Počet: ${value}`];
-          }}
-        />
+        <Tooltip formatter={(value) => [`Počet: ${value}`]} />
         <Bar dataKey="value" fill={color} />
       </BarChart>
     );

@@ -1,7 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components';
-
 import Chart from '../components/Charts/BarCharts/VerticalBarChart';
 
 const ChartsContainer = styled.div`
@@ -19,13 +17,13 @@ const VerticalCharts = ({
 }) => {
   const infectedAgeGender = [];
 
-  infectedByAgeSex[0].infectedByAge.map((group, i) => {
-    return infectedAgeGender.push({
+  infectedByAgeSex[0].infectedByAge.map((group, i) =>
+    infectedAgeGender.push({
       name: group.age,
       Muž: group.value,
       Žena: infectedByAgeSex[1].infectedByAge[i].value,
-    });
-  });
+    }),
+  );
 
   return (
     <>

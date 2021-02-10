@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 const StyledLoader = styled.div`
@@ -62,12 +61,10 @@ const StyledLoader = styled.div`
   }
 `;
 
-const Loader = () => {
-  return (
-    <StyledLoader>
-      <div />
-    </StyledLoader>
-  );
-};
+const Loader = () => (
+  <StyledLoader>
+    <div />
+  </StyledLoader>
+);
 
 export default Loader;

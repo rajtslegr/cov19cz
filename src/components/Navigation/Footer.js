@@ -17,21 +17,19 @@ const StyledFooter = styled.footer`
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <p>
-        Designed by&nbsp;
-        <a href="https://rajtslegr.com" target="_blank" rel="noopener noreferrer">
-          rajtslegr.com
-        </a>
-        ,&nbsp;
-        <a href="https://github.com/apifytech/covid-19" target="_blank" rel="noopener noreferrer">
-          Data Source
-        </a>
-      </p>
-    </StyledFooter>
-  );
-};
+const Footer = () => (
+  <StyledFooter>
+    <p>
+      Designed by&nbsp;
+      <a href="https://rajtslegr.com" target="_blank" rel="noopener noreferrer">
+        rajtslegr.com
+      </a>
+      ,&nbsp;
+      <a href="https://github.com/apifytech/covid-19" target="_blank" rel="noopener noreferrer">
+        Data Source
+      </a>
+    </p>
+  </StyledFooter>
+);
 
 export default Footer;

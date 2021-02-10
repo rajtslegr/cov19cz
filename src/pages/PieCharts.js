@@ -1,7 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components';
-
 import Pie from '../components/Charts/PieChart';
 
 const PiesContainer = styled.div`
@@ -18,19 +16,11 @@ const Pies = ({ data: { infectedByAgeSex } }) => {
   const genderData = [
     {
       key: 'Muž',
-      data: infectedByAgeSex[0].infectedByAge
-        .map((o) => o.value)
-        .reduce((a, c) => {
-          return a + c;
-        }),
+      data: infectedByAgeSex[0].infectedByAge.map((o) => o.value).reduce((a, c) => a + c),
     },
     {
       key: 'Žena',
-      data: infectedByAgeSex[1].infectedByAge
-        .map((o) => o.value)
-        .reduce((a, c) => {
-          return a + c;
-        }),
+      data: infectedByAgeSex[1].infectedByAge.map((o) => o.value).reduce((a, c) => a + c),
     },
   ];
 

@@ -1,6 +1,7 @@
 {
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
+    "source.organizeImports",
     "source.fixAll.stylelint",
     "source.fixAll.eslint"
   ],
@@ -11,9 +12,7 @@
   "files.associations": {
     "*.js": "javascriptreact"
   },
-  "peacock.color": "#221a36",
-  "peacock.remoteColor": "#61dafb",
-  "tsImportSorter.configuration.autoFormat": "onSave",
+  "peacock.color": "#61dafb",
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#61dafb",
     "titleBar.activeForeground": "#15202b",

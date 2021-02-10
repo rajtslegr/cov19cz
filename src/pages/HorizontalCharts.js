@@ -1,7 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components';
-
 import BarChart from '../components/Charts/BarCharts/HorizontalBarChart';
 import LineChart from '../components/Charts/LineChart';
 import { formatDate } from '../utils/Helpers';
@@ -53,21 +51,21 @@ const HorizontalCharts = ({
     });
   });
 
-  hospitalizationData.slice(1).map((day) => {
-    return hospitalizationDataOutput.push({
+  hospitalizationData.slice(1).map((day) =>
+    hospitalizationDataOutput.push({
       key: formatDate(day[0]),
       Hospitalizováno: day[1],
       'Kritických pacientů': day[2],
       Propuštěno: day[4],
-    });
-  });
+    }),
+  );
 
-  hospitalizationData.slice(1).map((day) => {
-    return activeDataOutput.push({
+  hospitalizationData.slice(1).map((day) =>
+    activeDataOutput.push({
       key: formatDate(day.reportDate),
       data: day.active,
-    });
-  });
+    }),
+  );
 
   return (
     <ChartsContainer>

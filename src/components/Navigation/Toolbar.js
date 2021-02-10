@@ -1,8 +1,6 @@
 import React from 'react';
-
 import Headroom from 'react-headroom';
 import styled from 'styled-components';
-
 import erouska from '../../assets/erouska.svg';
 
 const Header = styled.header`
@@ -30,22 +28,20 @@ const Logo = styled.img`
   height: 36px;
 `;
 
-const Toolbar = () => {
-  return (
-    <Headroom>
-      <Header>
-        <Title>
-          <span role="img" aria-label="Emoji bakterie">
-            🦠&nbsp;
-          </span>
-          cov19cz
-        </Title>
-        <a href="https://erouska.cz/app/sdilej" rel="noopener noreferrer" target="_blank">
-          <Logo src={erouska} alt="eRouška" />
-        </a>
-      </Header>
-    </Headroom>
-  );
-};
+const Toolbar = () => (
+  <Headroom>
+    <Header>
+      <Title>
+        <span role="img" aria-label="Emoji bakterie">
+          🦠&nbsp;
+        </span>
+        cov19cz
+      </Title>
+      <a href="https://erouska.cz/app/sdilej" rel="noopener noreferrer" target="_blank">
+        <Logo src={erouska} alt="eRouška" />
+      </a>
+    </Header>
+  </Headroom>
+);
 
 export default Toolbar;

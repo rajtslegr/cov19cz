@@ -1,7 +1,12 @@
 import React from 'react';
-
 import {
-  CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis,
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
 import styled from 'styled-components';
 
@@ -30,22 +35,10 @@ const Title = styled.div`
 `;
 
 const Chart = ({ type, data, color, children }) => {
-  let tooltip = (
-    <Tooltip
-      formatter={(value) => {
-        return [`Počet: ${value}`];
-      }}
-    />
-  );
+  let tooltip = <Tooltip formatter={(value) => [`Počet: ${value}`]} />;
 
   if (type === 'percent') {
-    tooltip = (
-      <Tooltip
-        formatter={(value) => {
-          return [`Počet: ${value.toFixed(2)} %`];
-        }}
-      />
-    );
+    tooltip = <Tooltip formatter={(value) => [`Počet: ${value.toFixed(2)} %`]} />;
   } else if (type === 'hospitalization') {
     tooltip = <Tooltip />;
   }
