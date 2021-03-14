@@ -4,7 +4,7 @@
     {
       "name": "Chrome",
       "type": "pwa-chrome",
-      "runtimeExecutable": "/Applications/Google Chrome Dev.app/Contents/MacOS/Google Chrome Dev",
+      "runtimeExecutable": "/Applications/Brave Browser Nightly.app/Contents/MacOS/Brave Browser Nightly",
       "preLaunchTask": "npm: start",
       "postDebugTask": "npm stop",
       "request": "launch",

@@ -1,7 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components';
-
 import Card from '../components/Card';
 import { formatDateTime } from '../utils/Helpers';
 
@@ -21,11 +19,12 @@ const Cards = ({
     lastUpdatedAtSource,
     infected,
     totalTested,
+    testedAG,
+    testedPCR,
     recovered,
     deceased,
     hospitalized,
     critical,
-    active,
   },
 }) => {
   const lastUpdatedApi = formatDateTime(lastUpdatedAtSource);
@@ -49,7 +48,8 @@ const Cards = ({
       <CardsContainer>
         <Card data={hospitalized}>Hospitalizováno</Card>
         <Card data={critical}>Kriticky nakažených</Card>
-        <Card data={active}>Aktivních případů</Card>
+        <Card data={testedAG}>Počet antigenních testů</Card>
+        <Card data={testedPCR}>Počet PCR testů</Card>
         <Card data={lastUpdatedApi} type="date">
           Poslední aktualizace
         </Card>
