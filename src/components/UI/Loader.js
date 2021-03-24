@@ -20,6 +20,7 @@ const StyledLoader = styled.div`
     background: #d24040;
     animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
+
   div:after,
   div:before {
     content: ' ';
@@ -39,6 +40,7 @@ const StyledLoader = styled.div`
     top: -24px;
     border-radius: 50% 50% 0 0;
   }
+
   @keyframes lds-heart {
     0% {
       transform: scale(0.95);
