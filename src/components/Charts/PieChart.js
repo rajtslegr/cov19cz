@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import styled from 'styled-components';
 

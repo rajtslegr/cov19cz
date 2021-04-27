@@ -51,7 +51,7 @@ const Chart = ({ type, data, color, children }) => {
         margin={{
           top: 20,
           right: 15,
-          left: 8,
+          left: 20,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
