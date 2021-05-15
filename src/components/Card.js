@@ -1,6 +1,4 @@
 import React from 'react';
-
-import CountUp from 'react-countup';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
@@ -53,7 +51,7 @@ const Value = styled.div`
 `;
 
 const Card = ({ type, data, color, children }) => {
-  let valOutput = <CountUp start={0} end={parseFloat(data)} duration={1.5} />;
+  let valOutput = data.toLocaleString();
 
   if (type === 'date') {
     valOutput = data;
