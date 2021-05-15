@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Pie from '../components/Charts/PieChart';
 
 const PiesContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   @media (max-width: 599px) {
     flex-direction: column;

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Chart from '../components/Charts/BarCharts/VerticalBarChart';
 
 const ChartsContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   @media (max-width: 1199px) {
     flex-direction: column;

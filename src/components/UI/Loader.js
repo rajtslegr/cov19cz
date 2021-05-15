@@ -3,18 +3,18 @@ import styled from 'styled-components';
 
 const StyledLoader = styled.div`
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25vh;
   width: 80px;
   height: 80px;
+  margin-top: 25vh;
+  margin-right: auto;
+  margin-left: auto;
   transform: rotate(45deg);
   transform-origin: 40px 40px;
 
   div {
+    position: absolute;
     top: 32px;
     left: 32px;
-    position: absolute;
     width: 32px;
     height: 32px;
     background: #d24040;
@@ -23,11 +23,11 @@ const StyledLoader = styled.div`
 
   div:after,
   div:before {
-    content: ' ';
-    position: absolute;
     display: block;
+    position: absolute;
     width: 32px;
     height: 32px;
+    content: ' ';
     background: #d24040;
   }
 

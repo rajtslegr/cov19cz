@@ -3,14 +3,14 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 import styled from 'styled-components';
 
 const ChartContainer = styled.div`
-  background-color: white;
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
   height: 72vh;
-  padding: 8px;
   margin: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   @media (max-width: 1199px) {
     margin: 8px 0;

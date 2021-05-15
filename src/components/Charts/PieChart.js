@@ -3,14 +3,14 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recha
 import styled from 'styled-components';
 
 const PieContainer = styled.div`
-  background-color: white;
   box-sizing: border-box;
   width: 50%;
   height: 42vh;
-  padding: 8px;
   margin: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   @media (max-width: 599px) {
     width: 100%;

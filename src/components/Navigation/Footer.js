@@ -3,16 +3,16 @@ import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 56px;
-  width: 100%;
   display: flex;
+  bottom: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
-  font: inherit;
-  padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  font: inherit;
   background-color: white;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
 `;

@@ -4,10 +4,10 @@ import Card from '../components/Card';
 import { formatDateTime } from '../utils/Helpers';
 
 const CardsContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 
   @media (max-width: 599px) {
     flex-direction: column;

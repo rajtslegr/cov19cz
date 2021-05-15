@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 const StyledCard = styled.div`
   position: relative;
-  background-color: white;
   width: 25%;
-  text-align: center;
   margin: 8px;
   padding: 12px 8px 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   @media (max-width: 599px) {
     width: 100%;
@@ -22,12 +22,12 @@ const StyledCard = styled.div`
 
 const Stripe = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 5px;
-  left: 0;
-  top: 0;
-  background-color: ${(props) => props.color};
   border-radius: 5px 5px 0 0;
+  background-color: ${(props) => props.color};
 
   @media (max-width: 599px) {
     width: 100%;
@@ -44,8 +44,8 @@ const Title = styled.div`
 `;
 
 const Value = styled.div`
-  font-size: 1.5rem;
   font-weight: bold;
+  font-size: 1.5rem;
 
   @media (max-width: 1169px) {
     font-size: 1.1rem;

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const ErrorText = styled.div`
   display: block;
-  text-align: center;
   margin-top: 25vh;
+  text-align: center;
 `;
 
 const Error = () => (

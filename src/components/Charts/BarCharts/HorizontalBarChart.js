@@ -12,13 +12,13 @@ import {
 import styled from 'styled-components';
 
 const ChartContainer = styled.div`
-  background-color: white;
   box-sizing: border-box;
   height: 48vh;
-  padding: auto 8px;
   margin: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: auto 8px;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   @media (max-width: 599px) {
     margin: 8px 0;

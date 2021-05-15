@@ -5,10 +5,10 @@ import LineChart from '../components/Charts/LineChart';
 import { formatDate } from '../utils/Helpers';
 
 const ChartsContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 `;
 
 const HorizontalCharts = ({
