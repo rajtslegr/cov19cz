@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Dashboard from './pages/Dashboard';
 import Layout from './utils/hoc/withLayout';
 import GlobalStyle from './utils/styles/Global';
+import Dashboard from './views/Dashboard';
 
 function App() {
   return (
